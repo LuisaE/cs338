@@ -1,0 +1,5 @@
+Name: Luisa Escosteguy
+
+Plan for using Kali: I will use Kali in VMWare on my own computer.
+
+Status of your Kali installation: In progress
