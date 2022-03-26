@@ -1,0 +1,25 @@
+Name: Luisa Escosteguy
+
+Questions
+
+1. ipconfig getifaddr en0
+2. ping hostname
+3. ping -a ip_address
+4. 
+5. 
+6. 
+7.
+8.
+9.
+
+Citations
+
+1. https://www.avg.com/en/signal/find-ip-address
+2. No source
+3. https://www.javatpoint.com/get-hostname-from-ip-address
+4.
+5.
+6.
+7.
+8.
+9.
