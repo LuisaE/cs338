@@ -2,4 +2,4 @@ Name: Luisa Escosteguy
 
 Plan for using Kali: I will use Kali in VMWare on my own computer.
 
-Status of your Kali installation: In progress
+Status of your Kali installation: Done. I followed all the instructions in https://wiki.carleton.edu/pages/viewpage.action?pageId=97759863, and everything works fine. 
