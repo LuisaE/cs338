@@ -5,10 +5,15 @@ Questions
 1. ipconfig getifaddr en0
 2. ping hostname - The response will be PING hostname (IP we want)
 3. nslookup IP - The output will include the name (host) and address under the "Non-authoritative answer". Another way is host IP
-4. Create a file in the kali machine, copy it and then paste wherever you want. 
+4. Assume a file test.txt in Kali with path /home/kali/Desktop/test.txt
+sftp escosteguyl@mantis.mathcs.carleton.edu
+Trust authenticity of host
+password
+put [result from pwd] (eg: put /home/kali/Desktop/test.txt)
+This will upload /home/kali/Desktop/test.txt to /Accounts/escosteguyl/test.txt
 5. lsof -i@host_IP:port (eg: lsof -i@127.0.0.1:20) - If there is no output then there is no process. 
-6. lsof -i@host_IP:port | grep -i LISTEN
-7. wget -O file_name website (eg: wget -O file_cs338 https://www.carleton.edu/)
+6. lsof -i@host_IP:port | grep -i LISTEN - again, if there is no output then there is no process. 
+7. wget -O file_name website (eg: wget -O file_cs338 https://www.carleton.edu/, will save contents to file_cs338)
 8. curl -s -D - -o /dev/null website (eg: curl -s -D - -o /dev/null https://www.carleton.edu/)
 9. curl website -i
 
@@ -17,7 +22,7 @@ Citations
 1. https://www.avg.com/en/signal/find-ip-address
 2. No resource
 3. https://stackoverflow.com/questions/657482/how-to-find-host-name-from-ip-with-out-login-to-the-host
-4. No resource
+4. https://linuxize.com/post/how-to-use-linux-sftp-command-to-transfer-files/
 5. https://danielmiessler.com/study/lsof/
 6. Same as 5
 7. https://linuxize.com/post/wget-command-examples/
