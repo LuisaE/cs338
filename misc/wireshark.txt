@@ -1,4 +1,4 @@
-Names: Luisa Escosteguy
+Name: Luisa Escosteguy, collaborated with PJ Sangvong
 
 ===== DAYTIME =====
 
@@ -8,23 +8,47 @@ TCP 3-way handshake for establishing a connection
 2	129.6.15.29	192.168.8.128	TCP	13 → 47114 [SYN, ACK] Seq=0 Ack=1 Win=64240 Len=0 MSS=1460
 3	192.168.8.128	129.6.15.29	TCP	47114 → 13 [ACK] Seq=1 Ack=1 Win=64240 Len=0
 
-2. Port 13, it needs a port so it knows which network to capture - it cannot capture everything. 
+2. Port 13, it needs a port so it knows which network to capture/where to listen - ports are used to identify transactions over the network. 
 3. Frame 4: 4	129.6.15.29	192.168.8.128	DAYTIME	DAYTIME Response
-4. 
+4. Assuming this question refers to question 3:  
+Full content of frame 4: This represent the information about the frame. 
+    Frame 4: 105 bytes on wire (840 bits), 105 bytes captured (840 bits) on interface eth0, id 0
+    Interface id: 0 (eth0)
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Apr  2, 2022 17:13:49.525596686 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1648934029.525596686 seconds
+    [Time delta from previous captured frame: 0.035313873 seconds]
+    [Time delta from previous displayed frame: 0.035313873 seconds]
+    [Time since reference or first frame: 0.075738582 seconds]
+    Frame Number: 4
+    Frame Length: 105 bytes (840 bits)
+    Capture Length: 105 bytes (840 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:tcp:daytime]
+    [Coloring Rule Name: TCP SYN/FIN]
+    [Coloring Rule String: tcp.flags & 0x02 || tcp.flags.fin == 1]
+    Ethernet II, Src: VMware_f3:e2:51 (00:50:56:f3:e2:51), Dst: VMware_d1:2b:9f (00:0c:29:d1:2b:9f)
+    Internet Protocol Version 4, Src: 129.6.15.29, Dst: 192.168.8.128
+    Transmission Control Protocol, Src Port: 13, Dst Port: 47148, Seq: 1, Ack: 1, Len: 51
+
+Frame 4 also includes the daytime protocol (other than Ethernet, IP and TCP headers): This is the response of the DAYTIME server
 Daytime Protocol
     Type: Response
-    Daytime: \n59670 22-04-01 03:09:15 50 0 0 655.9 UTC(NIST) * \n
+    Daytime: \n59671 22-04-02 21:13:50 50 0 0 344.6 UTC(NIST) * \n
+
 5. Synchronize message, indicates the start of a TCP connection
-6. Acknowledge message, to acknowledge data - received the SYN. 
+6. Acknowledge message, to acknowledge data - received the SYN
 7. Termination of a TCP connection
-8. The nc client initiated teh closing of the TCP connection. We know this becacuse of frame 5:
+8. The nc client initiated the closing of the TCP connection. We know this becacuse of frame 5:
 5	192.168.8.128 (nc client as source)	129.6.15.29	TCP [FIN, ACK]
 
 Citation: https://www.imperva.com/learn/ddos/syn-flood/ (for questions 5, 6, and 7)
 
 ===== HTTP =====
 
-1. 18 connections (out of the 24 lines in capture, 18 had TCP as protocol)
+1. 4 connections - I counted the lines that had TCP as protocol and are [SYN, ACK].
 2. Yes, there is a GET request to the homepage in frame 7:
 7	192.168.8.128	45.79.89.123	HTTP	395	GET /index.html HTTP/1.1 
 3. Yes, it was requested in frame 11. We can see the request in the Info header
@@ -33,3 +57,5 @@ Citation: https://www.imperva.com/learn/ddos/syn-flood/ (for questions 5, 6, and
 ===== QUESTIONS =====
 
 1. What does exactly PSH mean? What are the implications of data being buffered or not?
+2. Why do I get different outputs in wireshark when I run the "Navigate to a web page" multiple times (in icognito)? For example,
+first time I got 24 lines, second time 44 - frame numbers with content also changed (question 2 frame 11 or frame 24). 
