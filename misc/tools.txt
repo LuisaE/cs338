@@ -12,7 +12,7 @@ password
 put [result from pwd] (eg: put /home/kali/Desktop/test.txt)
 This will upload /home/kali/Desktop/test.txt to /Accounts/escosteguyl/test.txt
 5. lsof -i@host_IP:port (eg: lsof -i@127.0.0.1:20) - If there is no output then there is no process. 
-6. lsof -i@host_IP:port | grep -i LISTEN - again, if there is no output then there is no process. 
+6. sudo nmap -sT -O IP (eg sudo nmap -sT -O 45.79.89.123) - This will return a list of ports, with its states and service names, so we check the ones that are listening. 
 7. wget -O file_name website (eg: wget -O file_cs338 https://www.carleton.edu/, will save contents to file_cs338)
 8. curl -s -D - -o /dev/null website (eg: curl -s -D - -o /dev/null https://www.carleton.edu/)
 9. curl website -i
@@ -24,7 +24,7 @@ Citations
 3. https://stackoverflow.com/questions/657482/how-to-find-host-name-from-ip-with-out-login-to-the-host
 4. https://linuxize.com/post/how-to-use-linux-sftp-command-to-transfer-files/
 5. https://danielmiessler.com/study/lsof/
-6. Same as 5
+6. https://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-sg-en-4/s1-server-ports.html
 7. https://linuxize.com/post/wget-command-examples/
 8. https://stackoverflow.com/questions/3252851/how-to-display-request-headers-with-command-line-curl
 9. Same as 8
