@@ -8,8 +8,8 @@ Names: Luisa Escosteguy, PJ Sangvong
 
 First let g = 11, p = 59, A = 57 and B = 44. Then we have the equations for the private keys:
 
-57 = 11^a mod 59 -> answer in the form: 58n + 36
-44 = 11^b mod 59 -> answer in the form: 58n + 15. 
+57 = 11^a mod 59 -> answer in the form: a = 58n + 36, for n >= 0.
+44 = 11^b mod 59 -> answer in the form: b = 58n + 15, for n >= 0.
 
 A possible answer for the private keys are a = 36 and b = 15 (n = 0), so we check if the shared keys match:
 
@@ -21,21 +21,31 @@ The numbers match so we found our shared key = 36.
 
 2. This wouldn't work with big integers because there would have many possible solutions, and it would require us
 to check lots of numbers in the shared key equations. Here we were lucky that n = 0, but n could theorically be 
-any positive number, so checking infinitely many solutions is not very practical.  
+any positive number, so checking several many solutions is not very practical. The greater g and p are, the harder
+to go through this process.  
 
 Citation: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Diffie-Hellman-Schlüsselaustausch.svg/1200px-Diffie-Hellman-Schlüsselaustausch.svg.png
 and used https://www.wolframalpha.com for calculations. 
 
 ------ RSA ------ 
 
-1. Message
+1. Message: 
 
 Method of computing:
 
-The factors of 5561 are {1, 67, 83, 5561}, therefore p and q are 67 and 83 (not necessarily in that order). 
+The factors of 5561 are {1, 67, 83, 5561}, therefore p and q are 67 and 83. We also know e = 13.
+We now find d: 
+13d = 1 mod 66*82 -> d = 1249. So we know that S = (5561, 1249) and P(5561, 13). 
+To decrypt the message we use this equation: message_n^d mod N = message_n^1249 mod 5561, which
+will give us the ascii number, which we then use to convert to a character. 
 
-Encoding:
+To decrypt the message we tried writing Python or Java code, but neither worked because of integer overflow. 
+We then used wolframalpha to manually get the ascii value. Finally, we input the values in a Python program that
+gave us the decrypted message. 
 
-2. This wouldn't work with big integers because
+Encoding: message_n^1249 mod 5561
 
-3. Encoding is insecure independent of RSA because
+2. This wouldn't work with big integers because message_n^1249 mod 5561 will be too big to compute. It will also be 
+impossible to calculate d to use it in this equation. 
+
+3. Encoding is insecure independent of RSA because 
