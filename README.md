@@ -8,3 +8,4 @@ Assignments:
 - [A network tools scavanger hunt](https://cs.carleton.edu/faculty/jondich/courses/cs338_s22/assignments/02-network-tools.html): Done.
 - [Getting started with Wireshark](https://cs.carleton.edu/faculty/jondich/courses/cs338_s22/assignments/03-wireshark.html): Done.
 - [HTTP Basic Auth](https://cs.carleton.edu/faculty/jondich/courses/cs338_s22/assignments/04-basic-authentication.html): Done.
+- [Being Eve](https://cs.carleton.edu/faculty/jondich/courses/cs338_s22/assignments/06-being-eve.html): In progress.

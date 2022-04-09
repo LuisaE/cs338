@@ -29,7 +29,7 @@ and used https://www.wolframalpha.com for calculations.
 
 ------ RSA ------ 
 
-1. Message: 
+1. Message: Hey Bob. It's even worse than we thought! Your pal, Alice. https://www.schneier.com/blog/archives/2022/04/airtags-are-used-for-stalking-far-more-than-previously-reported.html
 
 Method of computing:
 
@@ -46,6 +46,11 @@ gave us the decrypted message.
 Encoding: message_n^1249 mod 5561
 
 2. This wouldn't work with big integers because message_n^1249 mod 5561 will be too big to compute. It will also be 
-impossible to calculate d to use it in this equation. 
+very impractical (will take too long) to calculate d to use it in this equation. 
 
-3. Encoding is insecure independent of RSA because 
+3. Encoding is insecure independent of RSA because we could theorically compute the encryption key, it will take a while
+but with the time and motivation it can be done. Moreover, there is no randomization involved in RSA, so 
+we would be able to guess what letters are in the message based on common words (eg: Bob, Alice, Hello/Hi/Hey), and 
+use this information to decrypt the message.  
+
+Citation: https://paginas.fe.up.pt/~ei10109/ca/rsa-vulnerabilities.html#:~:text=Because%20RSA%20encryption%20is%20a,are%20equal%20to%20the%20ciphertext.
