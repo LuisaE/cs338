@@ -1,0 +1,41 @@
+Names: Luisa Escosteguy, PJ Sangvong
+
+
+------ Diffie-Hellman ------
+
+1. Value of the shared key K: 36
+   Method of computing: 
+
+First let g = 11, p = 59, A = 57 and B = 44. Then we have the equations for the private keys:
+
+57 = 11^a mod 59 -> answer in the form: 58n + 36
+44 = 11^b mod 59 -> answer in the form: 58n + 15. 
+
+A possible answer for the private keys are a = 36 and b = 15 (n = 0), so we check if the shared keys match:
+
+shared key equations:  
+K = 44^a mod 59 and a = 36 -> K = 36
+K = 57^b mod 59 and b = 15 -> K = 36
+
+The numbers match so we found our shared key = 36.
+
+2. This wouldn't work with big integers because there would have many possible solutions, and it would require us
+to check lots of numbers in the shared key equations. Here we were lucky that n = 0, but n could theorically be 
+any positive number, so checking infinitely many solutions is not very practical.  
+
+Citation: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Diffie-Hellman-Schlüsselaustausch.svg/1200px-Diffie-Hellman-Schlüsselaustausch.svg.png
+and used https://www.wolframalpha.com for calculations. 
+
+------ RSA ------ 
+
+1. Message
+
+Method of computing:
+
+The factors of 5561 are {1, 67, 83, 5561}, therefore p and q are 67 and 83 (not necessarily in that order). 
+
+Encoding:
+
+2. This wouldn't work with big integers because
+
+3. Encoding is insecure independent of RSA because
