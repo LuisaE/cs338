@@ -1,9 +1,12 @@
 Names: Luisa Escosteguy, PJ Sangvong
 
 Part 1
-Total time: [user time from a "time" command]
-Number of hashes computed: [count of the # of hashes computed] 
-Passwords cracked: [number cracked]
+Total time: 
+    real    0m0.799s
+    user    0m0.683s
+    sys     0m0.054s
+Number of hashes computed: All of them, 267751
+Passwords cracked: 2805
 Time per hash computed: [seconds per hash]
 Time per password cracked: [seconds per password]
 Passwords cracked per number of hashes computed: [passwords per hash]
