@@ -7,6 +7,7 @@ dict = {}
 dict_two_word = {}
 
 def hash_string(word):
+    """Type conversions and hash"""
     encoded_password = word.encode('utf-8')
     hasher = hashlib.sha256(encoded_password)
     digest = hasher.digest() 
@@ -16,6 +17,7 @@ def hash_string(word):
  
 
 def build_dictionary():
+    """Build the dictionary used in part 1, key is hash, value is password"""
     words = [line.strip().lower() for line in open('temp/words.txt')]
     for word in words:
         digest_as_hex_string = hash_string(word)
@@ -24,9 +26,9 @@ def build_dictionary():
 
 
 def build_two_word_dict():
-    '''
-    Takes too long
-    '''
+    """
+    We tried this approach for part 2, but it takes too long
+    """
     words = [line.strip().lower() for line in open('temp/words.txt')]
     for word1 in words:
         for word2 in words:
@@ -34,15 +36,6 @@ def build_two_word_dict():
             digest_as_hex_string = hash_string(word)
             if digest_as_hex_string not in dict:
                 dict_two_word[digest_as_hex_string] = word
-
-
-def crack_passwords1():
-    passwords = [line.strip().lower() for line in open('temp/password1.txt')]
-    with open('cracked1.txt', 'w') as f:
-        for password in passwords:
-            hash = password.split(":",2) 
-            if hash[1] in dict:
-                f.write(hash[0]+":"+dict[hash[1]]+"\n")
 
 
 def crack_password(password_path, output_name, dict):
@@ -55,6 +48,7 @@ def crack_password(password_path, output_name, dict):
 
 
 def randomized_crack(password_path, output_name):
+    """Randomly pick some words to hash together and see if we get a match"""
     words = [line.strip().lower() for line in open('temp/words.txt')]
     passwords = [line.strip().lower() for line in open(password_path)]
     passwords_dict = {}
@@ -86,9 +80,7 @@ def part2():
     '''
     # build_two_word_dict() # takes too long
     # crack_password('temp/password2.txt', 'cracked2.txt', dict_two_word)
-    
     randomized_crack('temp/password2.txt', 'cracked2.txt')
-
 
 
 if __name__ == '__main__':

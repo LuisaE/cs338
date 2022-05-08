@@ -17,21 +17,26 @@ Total time:
     user    57m5.290s
     sys     0m14.874s
 Number of hashes computed: 1,000,000,000
-Passwords cracked: 14
-Time per hash computed: 0.0000031s
-Time per password cracked: 224.13s
-Passwords cracked per number of hashes computed: 0.000000014 passwords cracked per hash
+Passwords cracked: 44
+Time per hash computed: 0.0000034s
+Time per password cracked: 77.7s
+Passwords cracked per number of hashes computed: 0.000000044 passwords cracked per hash
 
-Part 3
-Total time: [user time from a "time" command]
-Number of hashes computed: [count of the # of hashes computed] 
-Passwords cracked: [number cracked]
-Time per hash computed: [seconds per hash]
-Time per password cracked: [seconds per password]
-Passwords cracked per number of hashes computed: [passwords per hash]
+Part 3 - TODO
+Total time: 
+Number of hashes computed: 
+Passwords cracked: 
+Time per hash computed:
+Time per password cracked: 
+Passwords cracked per number of hashes computed: 
 
 Analysis:
 - Did your time per hash computed change between phases? By what factor? Why?
+    - No, the time to compute a hash is still approximately the same. In part 2, 
+    we are computing much more hashes, but the time per hash does not change much
+    as it is a constant operation. 
+
+OLD ANSWER:
     -   Yes. It increases by a lot from phase 1 to phase 2. For phase 1, we only need
         to consider 267751 words, but for phase 2, we have to consider all possible 
         permutations of words (267751 * 267751), which is greater by 26,775,000 percent.
@@ -39,8 +44,8 @@ Analysis:
 - Did your time per password crack change between phases? By what factor? Why?
 [number and explanation]
    -    Yes because phase 2 takes longer to run and cracks fewer passwords. For phase 1, 
-        it takes 0.00024 seconds per password, but for phase 2, it takes ____ seconds per 
-        password, which is ____ percent slower.  
+        it takes 0.00024 seconds per password, but for phase 2, it takes 77.7s seconds per 
+        password, which is 32374900% percent slower.  
 
 
 - Suppose you wanted to precompute all the possible password hashes for each
@@ -53,7 +58,7 @@ memory would be required for each phase?
         For phase 2, if we are to conpute the hashes, we will need 267751 * 267751 hashes which 
         is a total of around 2 * 10^12 bytes.
 
-        For phase 3, 
+        For phase 3, TODO
 
 - Give 3-4 reasons we should store password hashes and not the passwords themselves.
 Think in terms of threats, who the attackers might be, etc.
