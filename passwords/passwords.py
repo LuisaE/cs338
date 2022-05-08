@@ -68,7 +68,7 @@ def randomized_crack(password_path, output_name):
             rand_word = rand_word1 + rand_word2
             rand_hash = hash_string(rand_word)
             if rand_hash in passwords_dict:
-                f.write(rand_hash+":"+passwords_dict[rand_hash]+"\n") 
+                f.write(passwords_dict[rand_hash]+":"+rand_word+"\n") 
         
 
 
