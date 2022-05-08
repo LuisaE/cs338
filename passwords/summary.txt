@@ -13,9 +13,9 @@ Passwords cracked per number of hashes computed: 0.01 passwords cracked per hash
 
 Part 2
 Total time: 
-    real    52m46.496s
-    user    52m17.875s
-    sys     0m5.389s
+    real    59m6.488s
+    user    57m5.290s
+    sys     0m14.874s
 Number of hashes computed: 1,000,000,000
 Passwords cracked: 14
 Time per hash computed: 0.0000031s
