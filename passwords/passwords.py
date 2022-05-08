@@ -7,7 +7,9 @@ dict = {}
 dict_two_word = {}
 
 def hash_string(word):
-    """Type conversions and hash"""
+    '''
+    Type conversions and hash
+    '''
     encoded_password = word.encode('utf-8')
     hasher = hashlib.sha256(encoded_password)
     digest = hasher.digest() 
@@ -17,7 +19,9 @@ def hash_string(word):
  
 
 def build_dictionary():
-    """Build the dictionary used in part 1, key is hash, value is password"""
+    '''
+    Build the dictionary used in part 1, key is hash, value is password
+    '''
     words = [line.strip().lower() for line in open('temp/words.txt')]
     for word in words:
         digest_as_hex_string = hash_string(word)
@@ -26,9 +30,9 @@ def build_dictionary():
 
 
 def build_two_word_dict():
-    """
+    '''
     We tried this approach for part 2, but it takes too long
-    """
+    '''
     words = [line.strip().lower() for line in open('temp/words.txt')]
     for word1 in words:
         for word2 in words:
@@ -48,7 +52,9 @@ def crack_password(password_path, output_name, dict):
 
 
 def randomized_crack(password_path, output_name):
-    """Randomly pick some words to hash together and see if we get a match"""
+    '''
+    Randomly pick some words to hash together and see if we get a match
+    '''
     words = [line.strip().lower() for line in open('temp/words.txt')]
     passwords = [line.strip().lower() for line in open(password_path)]
     passwords_dict = {}
