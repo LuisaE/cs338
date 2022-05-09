@@ -24,9 +24,9 @@ Passwords cracked per number of hashes computed: 0.000000044 passwords cracked p
 
 Part 3 - TODO
 Total time: 
-Number of hashes computed: 
+Number of hashes computed: We compute 2805*267751 = 751041555 hashes
 Passwords cracked: 
-Time per hash computed:
+Time per hash computed: 
 Time per password cracked: 
 Passwords cracked per number of hashes computed: 
 

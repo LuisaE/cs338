@@ -5,6 +5,7 @@ import random
 
 dict = {}
 dict_two_word = {}
+salted_dict = {}
 
 def hash_string(word):
     '''
@@ -69,6 +70,31 @@ def randomized_crack(password_path, output_name):
             rand_hash = hash_string(rand_word)
             if rand_hash in passwords_dict:
                 f.write(passwords_dict[rand_hash]+":"+rand_word+"\n") 
+
+def build_salted_dictionary():
+    '''
+    Build the dictionary used in part 3, key is hash, value is password
+    '''
+    words = [line.strip().lower() for line in open('temp/words.txt')]
+    passwords = [line.strip().lower() for line in open('temp/password3.txt')]
+    for word in words:
+        for password in passwords:
+            salt = password.split(":",2)[1].split("$")[2]
+            digest_as_hex_string = hash_string(salt+word)
+            if digest_as_hex_string not in salted_dict:
+                salted_dict[digest_as_hex_string] = word
+
+def salted_crack(password_path, output_name):
+    '''
+    Do salted one-password crack
+    '''
+    passwords = [line.strip().lower() for line in open(password_path)]
+    with open(output_name, 'w') as f:
+        for password in passwords:
+            user = password.split(":",2)[0]
+            hash = password.split(":",2)[1].split("$")[3]
+            if hash in salted_dict:
+                f.write(user+":"+salted_dict[hash]+"\n")
         
 
 
@@ -88,7 +114,14 @@ def part2():
     # crack_password('temp/password2.txt', 'cracked2.txt', dict_two_word)
     randomized_crack('temp/password2.txt', 'cracked2.txt')
 
+def part3():
+    '''
+    Cracks salted one-word passwords
+    '''
+    build_salted_dictionary()
+    salted_crack('temp/password3.txt', 'cracked3.txt')
 
 if __name__ == '__main__':
     # part1()
-    part2()
+    # part2()
+    part3()
