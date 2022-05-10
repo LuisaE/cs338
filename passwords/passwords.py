@@ -5,7 +5,6 @@ import random
 
 dict = {}
 dict_two_word = {}
-salted_dict = {}
 
 def hash_string(word):
     '''
@@ -74,32 +73,29 @@ def randomized_crack(password_path, output_name):
                 print("Count: "+str(c)+" "+passwords_dict[rand_hash]+":"+rand_word+"\n")
                 f.write(passwords_dict[rand_hash]+":"+rand_word+"\n") 
 
-def build_salted_dictionary():
-    '''
-    Build the dictionary used in part 3, key is hash, value is password
-    '''
-    words = [line.strip().lower() for line in open('temp/words.txt')]
-    passwords = [line.strip().lower() for line in open('temp/password3.txt')]
-    for word in words:
-        for password in passwords:
-            salt = password.split(":",2)[1].split("$")[2]
-            digest_as_hex_string = hash_string(salt+word)
-            if digest_as_hex_string not in salted_dict:
-                salted_dict[digest_as_hex_string] = word
 
 def salted_crack(password_path, output_name):
-    '''
-    Do salted one-password crack
-    '''
+    words = [line.strip().lower() for line in open('temp/words.txt')]
     passwords = [line.strip().lower() for line in open(password_path)]
+    num_hash = 0
+
     with open(output_name, 'w') as f:
         for password in passwords:
-            user = password.split(":",2)[0]
-            hash = password.split(":",2)[1].split("$")[3]
-            if hash in salted_dict:
-                f.write(user+":"+salted_dict[hash]+"\n")
-        
+            password_colon_split = password.split(":",2)
+            password_dollar_split = password_colon_split[1].split("$")
+            user = password_colon_split[0]
+            salt = password_dollar_split[2]
+            hash = password_dollar_split[3]
 
+            # all the salts are unique, so no need to keep any hash in memory
+            for word in words: 
+                digest_as_hex_string = hash_string(salt+word)
+                num_hash += 1
+                if digest_as_hex_string == hash:
+                    f.write(user+":"+word+"\n")
+                    break # stops looking for password when finds one
+
+    print(f'created {num_hash} hashes')
 
 def part1():
     '''
@@ -117,11 +113,11 @@ def part2():
     # crack_password('temp/password2.txt', 'cracked2.txt', dict_two_word)
     randomized_crack('temp/password2.txt', 'cracked2.txt')
 
+
 def part3():
     '''
     Cracks salted one-word passwords
     '''
-    build_salted_dictionary()
     salted_crack('temp/password3.txt', 'cracked3.txt')
 
 def sanity_check():
