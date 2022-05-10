@@ -12,4 +12,4 @@ Assignments:
 - [SSH Key File Formats](https://cs.carleton.edu/faculty/jondich/courses/cs338_s22/assignments/08-whats-in-a-key-file.html): Done.
 - [Cryptographic scenarios](https://cs.carleton.edu/faculty/jondich/courses/cs338_s22/assignments/09-scenarios.html): Done.
 - [Stride](https://cs.carleton.edu/faculty/jondich/courses/cs338_s22/assignments/10-stride.html): Done.
-- [Brute froce password](https://cs.carleton.edu/faculty/jondich/courses/cs338_s22/assignments/11-passwords.html#handin): In progress.
+- [Brute froce password](https://cs.carleton.edu/faculty/jondich/courses/cs338_s22/assignments/11-passwords.html#handin): Done.
