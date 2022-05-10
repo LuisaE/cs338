@@ -90,6 +90,7 @@ def salted_crack(password_path, output_name):
                 num_hash += 1
                 if digest_as_hex_string == hash:
                     f.write(user+":"+word+"\n")
+                    break # stops looking for password when finds one
 
     print(f'created {num_hash} hashes')
 

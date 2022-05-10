@@ -24,14 +24,14 @@ Passwords cracked per number of hashes computed: 0.000000044 passwords cracked p
 
 Part 3
 Total time: 
-    real    18m9.653s
-    user    17m21.353s
-    sys     0m4.299s
-Number of hashes computed: 751041555
+    real    8m26.350s
+    user    8m24.482s
+    sys     0m0.356s
+Number of hashes computed: 373448547
 Passwords cracked: 2805
-Time per hash computed: 0.0000014s
-Time per password cracked: 0.37s
-Passwords cracked per number of hashes computed: 0.0000037 passwords cracked per hash
+Time per hash computed: 0.0000013s
+Time per password cracked: 0.17s
+Passwords cracked per number of hashes computed: 0.0000075 passwords cracked per hash
 
 Analysis:
 - Did your time per hash computed change between phases? By what factor? Why?
