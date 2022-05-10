@@ -64,11 +64,14 @@ def randomized_crack(password_path, output_name):
             hash = password.split(":",2) 
             passwords_dict[hash[1]] = hash[0]
         
-        for _ in range(1000000000):
+        c = 0
+        for _ in range(8000000000):
             rand_word1, rand_word2 = random.choices(words, k=2)
             rand_word = rand_word1 + rand_word2
             rand_hash = hash_string(rand_word)
             if rand_hash in passwords_dict:
+                c += 1
+                print("Count: "+str(c)+" "+passwords_dict[rand_hash]+":"+rand_word+"\n")
                 f.write(passwords_dict[rand_hash]+":"+rand_word+"\n") 
 
 def build_salted_dictionary():
@@ -121,7 +124,15 @@ def part3():
     build_salted_dictionary()
     salted_crack('temp/password3.txt', 'cracked3.txt')
 
+def sanity_check():
+    salt = "73f5c390"
+    hash = "6b5b88886d9fcd76e5c4dceafb0069cb969d4f63d331793ae78b1f9b99bdee41"
+    word = "moose"
+    digest_as_hex_string = hash_string(salt+word)
+    print(digest_as_hex_string == hash)
+
+
 if __name__ == '__main__':
     # part1()
-    # part2()
-    part3()
+    part2()
+    # sanity_check()
