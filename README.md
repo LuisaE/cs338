@@ -13,3 +13,5 @@ Assignments:
 - [Cryptographic scenarios](https://cs.carleton.edu/faculty/jondich/courses/cs338_s22/assignments/09-scenarios.html): Done.
 - [Stride](https://cs.carleton.edu/faculty/jondich/courses/cs338_s22/assignments/10-stride.html): Done.
 - [Brute froce password](https://cs.carleton.edu/faculty/jondich/courses/cs338_s22/assignments/11-passwords.html#handin): Done.
+- [Pen testing, part 1](https://cs.carleton.edu/faculty/jondich/courses/cs338_s22/assignments/13-pentesting-1.html): Done
+- [Person-in-the-Middle via ARP Spoofing](https://cs.carleton.edu/faculty/jondich/courses/cs338_s22/assignments/14-arp-spoofing.html): Done.
