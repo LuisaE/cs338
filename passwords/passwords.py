@@ -75,6 +75,10 @@ def randomized_crack(password_path, output_name):
 
 
 def salted_crack(password_path, output_name):
+    '''
+    Go through each salt and use that salt to hash with all the words until we get 
+    the password
+    '''
     words = [line.strip().lower() for line in open('temp/words.txt')]
     passwords = [line.strip().lower() for line in open(password_path)]
     num_hash = 0

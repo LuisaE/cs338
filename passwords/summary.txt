@@ -37,8 +37,8 @@ Analysis:
 - Did your time per hash computed change between phases? By what factor? Why?
     - No, the time to compute a hash is still approximately the same (it changed a little bit, 
     likely because we used different computers, but nothing significant). In part 2, 
-    we are computing much more hashes, but the time per hash does not change much
-    as it is a constant operation. 
+    we are computing much more hashes but also are using a lot more time, so the time per hash 
+    remains rounghly the same. This makes sense because hashing string should be a close-to-constant operation. 
 
 - Did your time per password crack change between phases? By what factor? Why?
 [number and explanation]
